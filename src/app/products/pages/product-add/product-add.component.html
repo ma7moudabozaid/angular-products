@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card-title">
+        <h1> Add Products </h1>
+      </div>
+      <form [formGroup]="formGroup" (ngSubmit)="addProduct()">
+        <div class="card-form">
+          <div class="form-group">
+            <label> Title </label>
+            <input type="text" class="form-control" name="title" formControlName="title" required placeholder="Title" />
+            <div *ngIf="
+              IsValid['title'].invalid &&
+              (IsValid['title'].dirty || IsValid['title'].touched)
+            " class="msg-error">
+              <div *ngIf="IsValid['title'].errors?.['required']">
+                Required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label> Price </label>
+            <input type="text" class="form-control" name="price" formControlName="price" required placeholder="Price" />
+            <div *ngIf="
+            IsValid['price'].invalid &&
+            (IsValid['price'].dirty || IsValid['price'].touched)
+          " class="msg-error">
+              <div *ngIf="IsValid['price'].errors?.['required']">
+                Required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> Category </label>
+            <input type="text" class="form-control" name="category" formControlName="category" required
+              placeholder="Category" />
+
+            <div *ngIf="
+              IsValid['category'].invalid &&
+              (IsValid['category'].dirty || IsValid['category'].touched)
+            " class="msg-error">
+              <div *ngIf="IsValid['category'].errors?.['required']">
+                Required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> Image </label>
+            <input type="text" class="form-control" name="image" formControlName="image" required placeholder="Image" />
+            <div *ngIf="
+            IsValid['image'].invalid &&
+            (IsValid['image'].dirty || IsValid['image'].touched)
+          " class="msg-error">
+              <div *ngIf="IsValid['image'].errors?.['required']">
+                Required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label> Description </label>
+            <textarea type="text" class="form-control" name="description" formControlName="description" required
+              placeholder="Description"></textarea>
+            <div *ngIf="
+              IsValid['description'].invalid &&
+              (IsValid['description'].dirty || IsValid['description'].touched)
+            " class="msg-error">
+              <div *ngIf="IsValid['description'].errors?.['required']">
+                Required
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-save" type="submit" [disabled]="formGroup.invalid">
+            Save
+          </button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
